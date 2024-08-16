@@ -37,6 +37,7 @@ extension HtmlText {
                         .link(color: .red, underlined: false)
                         .paragraph(padding: .init(top: 10, left: 0, bottom: 0, right: 0))
                         .list(padding: .init(top: 10, left: 24, bottom: 10, right: 0))
+                        .customCSS("*{ }")
                   ),
                   linkTap: HtmlText.defaultLinkTapHandler(httpLinkTap: .openSFSafariModal))
     }

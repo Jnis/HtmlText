@@ -22,6 +22,7 @@ public extension HtmlText.CSS {
         var linkColor = ""
         var linkDecoration = ""
         var listPadding = ""
+        var customCSS = ""
         
         public init() {}
         
@@ -55,6 +56,7 @@ public extension HtmlText.CSS {
             """
             return self
         }
+        
         public func paragraph(padding: UIEdgeInsets) -> Constructor {
             paragraphPadding =
             """
@@ -63,6 +65,11 @@ public extension HtmlText.CSS {
             padding-right: \(padding.right)px;
             padding-bottom: \(padding.bottom)px;
             """
+            return self
+        }
+        
+        public func customCSS(_ customCSS: String) -> Constructor {
+            self.customCSS = customCSS
             return self
         }
     }
@@ -94,6 +101,7 @@ public extension HtmlText.CSS {
             a:link {\(constructor.linkColor);}
             a:visited {\(constructor.linkColor);}
             a:active {color:#000000;}
+            \(constructor.customCSS)
             """
         )
     }
